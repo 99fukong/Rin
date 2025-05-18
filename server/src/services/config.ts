@@ -31,7 +31,7 @@ export function ConfigService() {
                     }
                     const config = type === 'server' ? ServerConfig() : ClientConfig();
                     for (const key in body) {
-                        await config.set(key, body[key], false);
+                        await config.set(key, body[key]);
                     }
                     await config.save();
                     return 'OK';

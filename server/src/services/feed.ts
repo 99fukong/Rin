@@ -160,6 +160,7 @@ export function FeedService() {
                     const id_num = parseInt(id);
                     const cache = PublicCache();
                     const cacheKey = `feed_${id}`;
+                    console.log("log feed: ", cacheKey)
                     const feed = await cache.getOrSet(cacheKey, () => (db.query.feeds.findFirst({
                         where: or(eq(feeds.id, id_num), eq(feeds.alias, id)),
                         with: {
@@ -604,12 +605,12 @@ async function clearFeedCache(id: number, alias: string | null, newAlias: string
     const cache = PublicCache()
     await cache.deletePrefix('feeds_');
     await cache.deletePrefix('search_');
-    await cache.delete(`feed_${id}`, false);
+    await cache.delete(`feed_${id}`);
     await cache.deletePrefix(`${id}_previous_feed`);
     await cache.deletePrefix(`${id}_next_feed`);
     if (alias === newAlias) return;
     if (alias)
-        await cache.delete(`feed_${alias}`, false);
+        await cache.delete(`feed_${alias}`);
     if (newAlias)
-        await cache.delete(`feed_${newAlias}`, false);
+        await cache.delete(`feed_${newAlias}`);
 }

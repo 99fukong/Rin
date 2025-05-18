@@ -11,6 +11,8 @@ import { CacheImpl } from "./utils/cache";
 import { dbToken, envToken } from "./utils/di";
 export type DB = DrizzleD1Database<typeof import("./db/schema")>
 
+const cachedApp = new Elysia({aot: false });
+
 export default {
     async fetch(
         request: Request,
@@ -22,14 +24,13 @@ export default {
 
         const exist = Container.has("cache")
         if (!exist) {
+            console.log("cache is not exist")
             Container.set("cache", new CacheImpl());
             Container.set("server.config", new CacheImpl("server.config"));
             Container.set("client.config", new CacheImpl("client.config"));
         }
 
-        return await new Elysia({ aot: false })
-            .use(app())
-            .handle(request)
+        return await cachedApp.use(app()).handle(request);
     },
     async scheduled(
         _controller: ScheduledController | null,
