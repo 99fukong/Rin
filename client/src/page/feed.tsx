@@ -19,6 +19,7 @@ import {Tips} from "../components/tips";
 import {useLoginModal} from "../hooks/useLoginModal";
 import mermaid from "mermaid";
 import {AdjacentSection} from "../components/adjacent_feed.tsx";
+import {Cache} from "../utils/cache"
 
 type Feed = {
   id: number;
@@ -71,6 +72,7 @@ export function FeedPage({ id, TOC, clean }: { id: string, TOC: () => JSX.Elemen
             if (error) {
               showAlert(error.value as string);
             } else {
+              Cache.with(feed.id).clear()
               showAlert(t("delete.success"));
               setLocation("/");
             }
