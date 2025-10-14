@@ -71,8 +71,9 @@ type D1Item = {
     version: string,
     created_at: string,
 }
-
+console.log(`-------------start---------------`)
 const { exitCode, stderr, stdout } = await $`bunx wrangler d1 create ${DB_NAME}`.quiet().nothrow()
+console.log(`----------------------------`)
 if (exitCode !== 0) {
     if (!stderr.toString().includes('already exists')) {
         console.error(`Failed to create D1 "${DB_NAME}"`)

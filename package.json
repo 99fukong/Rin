@@ -1,10 +1,7 @@
 {
   "name": "rin",
   "version": "1.0.0",
-  "workspaces": [
-    "server",
-    "client"
-  ],
+  "workspaces": ["server", "client"],
   "private": true,
   "scripts": {
     "dev": "turbo dev",
@@ -27,6 +24,7 @@
     "i18next-parser": "^9.0.0",
     "postcss": "^8.4.38",
     "puppeteer": "^22.13.0",
+    "strip-indent": "^4.1.1",
     "tailwindcss": "^3.4.3",
     "turbo": "^1.13.3",
     "vitest": "1.6.1"
