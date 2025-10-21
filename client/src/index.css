@@ -16,6 +16,19 @@
 body {
   @apply bg-background-light dark:bg-background-dark text-gray-800;
   font-family: Cantarell, "Source Han Serif CN VF" !important;
+  margin: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* yet-another-react-lightbox，修复顶部工具栏试配 web app 全屏模式 */
+.yarl__portal,
+.yarl__container {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+           env(safe-area-inset-bottom) env(safe-area-inset-left);
+  box-sizing: border-box;
+}
+.yarl__toolbar {
+  top: env(safe-area-inset-top) !important;
 }
 
 textarea:focus {
