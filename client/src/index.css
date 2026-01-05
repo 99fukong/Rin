@@ -13,6 +13,26 @@
     U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: 'Sarasa Mono SC';
+  src: url('/SarasaMonoSC-common-cjk.woff2') format('woff2');
+  unicode-range: U+4E00-9FFF;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LXGWWenKai Mono';
+  src: url('/LXGWWenKaiMono-common-cjk.woff2') format('woff2');
+  unicode-range: U+4E00-9FFF;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/JetBrainsMono-Light.woff2') format('woff2');
+  font-display: swap;
+}
+
 body {
   @apply bg-background-light dark:bg-background-dark text-gray-800;
   font-family: Cantarell, "Source Han Serif CN VF" !important;
