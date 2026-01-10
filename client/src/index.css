@@ -79,6 +79,16 @@ ul {
   list-style: initial;
 }
 
+a {
+    color: inherit;
+    text-decoration: inherit;
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .link-line a {
   @apply hover:underline;
 }
