@@ -16,10 +16,10 @@ interface MarkdownEditorProps {
 }
 
 const windowsFontFamily =
-  '"JetBrains Mono", "LXGWWenKai Mono", Consolas, monospace'
+  '"JetBrains Mono", TsangerJinKai02, Consolas, monospace'
 
 const macFontFamily =
-  '"JetBrains Mono", "LXGWWenKai Mono", Menlo, monospace'
+  '"JetBrains Mono", TsangerJinKai02, Menlo, monospace'
 
 
 const isWindows = navigator.platform.startsWith("Win")
