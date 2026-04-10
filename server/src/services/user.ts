@@ -88,7 +88,7 @@ export function UserService() {
                     query: t.Object({
                         state: t.String(),
                         code: t.String(),
-                    })
+                    }, { additionalProperties: true })
                 })
                 .get('/profile', async ({ set, uid }) => {
                     if (!uid) {
